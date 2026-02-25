@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0f0a" />
+  <title>ASCENSÃO OS</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header id="hud" class="hud" role="button" tabindex="0" aria-label="Abrir painel HUD"></header>
+    <main id="view" class="view" tabindex="-1"></main>
+    <nav id="tabs" class="tabs" aria-label="Navegação"></nav>
+    <div id="mentorBar" class="mentorBar" aria-label="Mentor"></div>
+
+    <div id="modalRoot" class="modalRoot" aria-live="polite"></div>
+    <div id="toastRoot" class="toastRoot" aria-live="polite"></div>
+    <div id="overlayRoot" class="overlayRoot" aria-live="polite"></div>
+    <div id="bootRoot" class="bootRoot" aria-live="polite"></div>
+
+    <div id="fatalRoot" class="fatalRoot" aria-live="polite"></div>
+  </div>
+  <noscript><div style="padding:16px;color:#e7ffe1;background:#071006;font-family:monospace">Precisa de JavaScript.</div></noscript>
+  <script>
+  window.__ASCENSAO_HTML_OK__ = true;
+  setTimeout(()=>{
+    if(!window.__ASCENSAO_APP_OK__){
+      const r=document.getElementById("fatalRoot");
+      if(r){
+        r.innerHTML = '<div class="fatal"><div class="box"><div class="cardTitle"><div>FATAL — app.js NÃO EXECUTOU</div><div class="small">Build 5</div></div><div class="small">Causa típica: app.js 404 (pasta errada) OU abertura via file://. Abra DevTools → Network e confirme que ./app.js retornou 200.</div></div></div>';
+      }
+    }
+  }, 1800);
+</script>
+<script src="./app.js"></script>
+</body>
+</html>
